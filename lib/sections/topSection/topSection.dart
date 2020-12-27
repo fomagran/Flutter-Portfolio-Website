@@ -4,6 +4,10 @@ import 'package:first_flutter_website/constants.dart';
 import 'package:first_flutter_website/sections/topSection/components/glass_content.dart';
 import 'package:flutter/material.dart';
 
+import 'components/logo_blur_box.dart';
+import 'components/menu.dart';
+import 'components/person_pic.dart';
+
 class TopSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,34 +29,17 @@ class TopSection extends StatelessWidget {
           children: [
             LogoAndBlurBox(size: size),
             Positioned(
-                bottom: 0,
-                right: 0,
-                child: Container(
-                  constraints: BoxConstraints(maxWidth: 639, maxHeight: 860),
-                  child: Image.asset("assets/images/person.png"),
-                ))
+              bottom: 0,
+              right: 0,
+              child: PersonPic(),
+            ),
+            Positioned(
+              bottom: 0,
+              child: Menu(),
+            )
           ],
         ),
       ),
-    );
-  }
-}
-
-class LogoAndBlurBox extends StatelessWidget {
-  const LogoAndBlurBox({Key key, @required this.size}) : super(key: key);
-
-  final Size size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset("assets/images/Logo.png"),
-        Spacer(),
-        GlassContent(size: size),
-        Spacer(flex: 3)
-      ],
     );
   }
 }
